@@ -1,10 +1,10 @@
-<center> <h1><a href="https://ignitia-website.vercel.app/"> Ignitia</a> </h1></center>
+<center> <h1 align="center"><a href="https://ignitia-website.vercel.app/"> Ignitia</a> </h1></center>
 <p align="center">
 <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,ts" />
 <br/>
 <a href=""><kbd>⚫️ shadcn-ui</kbd></a> <a href=""><kbd>🟡 drizzle</kbd></a> <a href=""><kbd>🔵 better-auth</kbd></a> <a href=""><kbd>🟠 neon</kbd></a>
 </p>
-<br/><br/>
+
 
 # ⚡What is Ignitia?
 
