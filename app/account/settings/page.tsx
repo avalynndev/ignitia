@@ -1,5 +1,4 @@
 import {
-    AccountSettingsCards,
   UpdateAvatarCard,
   UpdateNameCard,
   UpdateUsernameCard,

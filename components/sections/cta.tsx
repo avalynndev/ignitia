@@ -16,7 +16,6 @@ export function CTA() {
     <section className="relative pb-4">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 rounded-3xl p-1 backdrop-blur-lg border">
         <div className="text-center">
-          {/* Headline */}
           <motion.div
             initial={{ y: 60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -35,7 +34,6 @@ export function CTA() {
             </p>
           </motion.div>
 
-          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}

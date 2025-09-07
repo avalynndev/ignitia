@@ -1,6 +1,6 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { username, multiSession, magicLink } from "better-auth/plugins";
+import { username } from "better-auth/plugins";
 import { db } from "@/db";
 import { schema } from "@/schema";
 import { nextCookies } from "better-auth/next-js";
@@ -19,10 +19,7 @@ export const auth = betterAuth({
       enabled: true,
     },
   },
-  plugins: [
-    nextCookies(),
-    username(),
-  ],
+  plugins: [nextCookies(), username()],
 });
 export const { getSession } = auth.api;
 

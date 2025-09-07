@@ -7,7 +7,6 @@ import { idea, comment, ideaStars } from "@/schema";
 import { eq, and } from "drizzle-orm";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
 import { formatDate } from "@/lib/utils";
 import { useSession } from "@/lib/auth-client";
 import { Link } from "next-view-transitions";
@@ -50,8 +49,8 @@ export default function IdeaDetailPage() {
         .where(
           and(
             eq(ideaStars.ideaId, Number(id)),
-            eq(ideaStars.userId, session.data.user.id)
-          )
+            eq(ideaStars.userId, session.data.user.id),
+          ),
         );
       setStarred(userStar.length > 0);
     }
@@ -95,8 +94,8 @@ export default function IdeaDetailPage() {
           .where(
             and(
               eq(ideaStars.ideaId, Number(id)),
-              eq(ideaStars.userId, session.data.user.id)
-            )
+              eq(ideaStars.userId, session.data.user.id),
+            ),
           );
 
         await db
@@ -128,24 +127,24 @@ export default function IdeaDetailPage() {
   };
 
   useEffect(() => {
-    fetchIdea();
+    fetchIdea(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, session.data?.user]);
 
   if (loading || !ideaData)
     return (
-      <div className="relative flex h-[40vh] items-center justify-center">
+      <div className="relative flex h-[60vh] items-center justify-center">
         <ReloadIcon className="h-8 w-8 animate-spin" />
       </div>
     );
 
   return (
     <div className="max-w-6xl mx-auto p-6 pt-20 min-h-screen">
-      {/* Idea Card */}
-      <div className="rounded-xl border p-6 shadow-sm">
+      <div className="rounded-2xl border bg-card shadow-md hover:shadow-lg transition-shadow p-8 relative">
         <div className="flex items-start justify-between">
-          <h1 className="text-3xl font-bold mb-3">{ideaData.title}</h1>
+          <h1 className="text-4xl font-bold tracking-tight leading-snug">
+            {ideaData.title}
+          </h1>
 
-          {/* ⭐ Star beside title */}
           <Button
             onClick={toggleStar}
             variant="outline"
@@ -157,21 +156,21 @@ export default function IdeaDetailPage() {
               <div className="w-4 h-4 border-2 border-gray-300 border-t-yellow-500 rounded-full animate-spin" />
             ) : (
               <Star
-                className={`h-5 w-5 ${
+                className={`h-5 w-5 transition-colors ${
                   starred ? "fill-yellow-400 text-yellow-400" : "text-gray-400"
                 }`}
               />
             )}
-            <span className="text-sm">{ideaData.stars ?? 0}</span>
+            <span>{ideaData.stars ?? 0}</span>
           </Button>
         </div>
 
-        <div className="flex items-center text-sm text-muted-foreground mb-4">
+        <div className="flex items-center text-sm text-muted-foreground mt-3 mb-6">
           <UserCircle className="w-4 h-4 mr-1" />
           {ideaData.username ? (
             <Link
               href={`/profile/${ideaData.username}`}
-              className="underline hover:text-primary"
+              className="underline hover:text-primary transition-colors"
             >
               {ideaData.username}
             </Link>
@@ -182,27 +181,32 @@ export default function IdeaDetailPage() {
           {formatDate(ideaData.createdAt)}
         </div>
 
-        <p className="whitespace-pre-wrap break-words leading-relaxed text-muted-foreground">
-          {ideaData.description}
-        </p>
+        <div className="space-y-4">
+          <p className="text-base leading-relaxed text-foreground">
+            {ideaData.description}
+          </p>
 
-        <p className="whitespace-pre-wrap break-words leading-relaxed text-muted-foreground">
-          Solves Problem:{" "}
-          {ideaData.solves}
-        </p>
+          <div className="bg-muted/40 p-4 rounded-lg text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Solves Problem:</span>{" "}
+            {ideaData.solves}
+          </div>
+        </div>
 
         {ideaData.tags && ideaData.tags.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             {ideaData.tags.map((tag: string, idx: number) => (
-              <Badge key={idx} variant="secondary">
-                {tag}
+              <Badge
+                key={idx}
+                variant="secondary"
+                className="rounded-full px-3 py-1 text-xs"
+              >
+                #{tag}
               </Badge>
             ))}
           </div>
         )}
       </div>
 
-      {/* Comments */}
       <div className="mt-10">
         <h2 className="flex items-center text-lg font-semibold mb-4">
           <MessageSquare className="w-5 h-5 mr-2" />

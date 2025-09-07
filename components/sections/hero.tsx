@@ -44,7 +44,10 @@ export function Hero() {
           <div className="mt-8 md:mt-10">
             <div className="flex items-center space-x-4">
               <Link href="/submit" target="_blank" rel="noopener noreferrer">
-                <RainbowButton><Lightbulb className="h-5 w-5" />Submit a Idea</RainbowButton>
+                <RainbowButton>
+                  <Lightbulb className="h-5 w-5" />
+                  Submit a Idea
+                </RainbowButton>
               </Link>
               <Link href="/about">
                 <Button
@@ -68,7 +71,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right column: floating cards */}
         <div className="hidden lg:block lg:w-1/2 lg:flex-1">
           <FloatingStartupCards />
         </div>

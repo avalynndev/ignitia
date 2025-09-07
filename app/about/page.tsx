@@ -3,7 +3,6 @@
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-10 pt-20">
-      {/* Page Title */}
       <div className="mb-10 text-center">
         <h1 className="text-4xl font-bold tracking-tight mb-2">About Us</h1>
         <p className="text-muted-foreground">
@@ -12,7 +11,6 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Mission */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
         <p className="text-muted-foreground">
@@ -23,7 +21,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Why We Exist */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Why We Exist</h2>
         <p className="text-muted-foreground">
@@ -34,7 +31,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* FAQ */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">FAQ</h2>
         <div className="space-y-3">
@@ -61,7 +57,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Privacy Policy */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Privacy Policy</h2>
         <p className="text-muted-foreground">
@@ -71,7 +66,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* Terms & Conditions */}
       <section>
         <h2 className="text-2xl font-semibold mb-4">Terms & Conditions</h2>
         <p className="text-muted-foreground">

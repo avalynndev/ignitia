@@ -6,7 +6,6 @@ export const Footer = () => {
   return (
     <footer className="px-6 border-t bg-muted/10">
       <div className="mx-auto max-w-6xl py-10 grid grid-cols-1 gap-8 md:grid-cols-3">
-        {/* Logo + Status */}
         <div className="flex flex-col space-y-3">
           <div className="flex items-center gap-3">
             <Image height={40} width={40} src="/logo.png" alt="Logo" />
@@ -22,7 +21,6 @@ export const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
         <div className="flex flex-col space-y-2">
           <h3 className="text-sm font-semibold text-foreground/80">
             Quick Links
@@ -34,20 +32,19 @@ export const Footer = () => {
             About
           </Link>
           <Link
-            href="/"
+            href="/explore"
             className="text-sm text-muted-foreground hover:text-primary"
           >
-            Privacy Policy
+            Explore
           </Link>
           <Link
-            href="/"
+            href="/submit"
             className="text-sm text-muted-foreground hover:text-primary"
           >
-            Terms of Service
+            Submit
           </Link>
         </div>
 
-        {/* Social */}
         <div className="flex flex-col space-y-2">
           <h3 className="text-sm font-semibold text-foreground/80">Connect</h3>
           <a
@@ -75,7 +72,6 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
         © {new Date().getFullYear()} ignitia. All rights reserved.
       </div>

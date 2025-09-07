@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, RoundedBox, Text, useGLTF } from "@react-three/drei";
+import { RoundedBox, Text, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef, useState } from "react";
 
@@ -16,21 +16,15 @@ function Rocket() {
   useFrame(({ clock }) => {
     if (!rocketRef.current) return;
 
-    // Rocket movement (diagonal up-left)
     const t = clock.getElapsedTime();
-      rocketRef.current.position.set(
-        5 - t * 0.8,
-        -3 + t * 1, 
-        0
-      );
+    rocketRef.current.position.set(5 - t * 0.8, -3 + t * 1, 0);
 
     if (Math.random() < 0.4) {
-      const exhaust = new THREE.Vector3(0, -25, 0); // move down relative to rocket
+      const exhaust = new THREE.Vector3(0, -25, 0);
       rocketRef.current.localToWorld(exhaust);
       setParticles((prev) => [...prev, { position: exhaust, life: 1 }]);
     }
 
-    // Update smoke
     setParticles((prev) =>
       prev
         .map((p) => ({
@@ -40,11 +34,11 @@ function Rocket() {
             new THREE.Vector3(
               (Math.random() - 0.5) * 0.02,
               (Math.random() - 0.5) * 0.02,
-              0
-            )
+              0,
+            ),
           ),
         }))
-        .filter((p) => p.life > 0)
+        .filter((p) => p.life > 0),
     );
   });
 
@@ -57,19 +51,17 @@ function Rocket() {
         position={[6, -3, 0]}
         rotation={[0, 0, Math.PI / 6]}
       >
-        {/* Rounded rectangle behind the text */}
         <RoundedBox
-          args={[8, 3, 0.2]} // width, height, depth
-          radius={0.5} // corner radius
-          smoothness={4} // corner smoothness
-          position={[-1, 10, -0.1]} // slightly behind text
+          args={[8, 3, 0.2]}
+          radius={0.5}
+          smoothness={4}
+          position={[-1, 10, -0.1]}
         >
           <meshStandardMaterial color="#1e1e1e" transparent opacity={0.8} />
         </RoundedBox>
 
-        {/* Text on top */}
         <Text
-          position={[-1, 10, 0]} // move above rocket in local space
+          position={[-1, 10, 0]}
           fontSize={2}
           anchorX="center"
           anchorY="middle"
@@ -95,7 +87,7 @@ export default function RocketLaunch() {
       className="absolute inset-0"
       style={{
         pointerEvents: "none",
-        zIndex: -1, // Put it behind other content
+        zIndex: -1,
       }}
     >
       <Canvas camera={{ position: [0, 0, 12], fov: 50 }}>

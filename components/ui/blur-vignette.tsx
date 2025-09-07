@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
+import React, { useState } from "react";
 
-import { Switch } from "@/components/ui/switch"
+import { Switch } from "@/components/ui/switch";
 
 interface BlurVignetteProps {
-  children: React.ReactNode
-  className?: string
-  radius?: string
-  inset?: string
-  transitionLength?: string
-  blur?: string
-  switchView?: boolean
+  children: React.ReactNode;
+  className?: string;
+  radius?: string;
+  inset?: string;
+  transitionLength?: string;
+  blur?: string;
+  switchView?: boolean;
 }
 
 const BlurVignette = ({
@@ -23,7 +23,7 @@ const BlurVignette = ({
   transitionLength = "32px",
   blur = "21px",
 }: BlurVignetteProps) => {
-  const [isEnabled, setIsEnabled] = useState(true)
+  const [isEnabled, setIsEnabled] = useState(true);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
@@ -87,7 +87,7 @@ const BlurVignette = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlurVignette
+export default BlurVignette;

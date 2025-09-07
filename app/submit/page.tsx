@@ -49,7 +49,6 @@ export default function SubmitPage() {
         username: finalUsername,
       });
 
-      // reset
       setTitle("");
       setShortDescription("");
       setDescription("");
@@ -84,7 +83,6 @@ export default function SubmitPage() {
 
   return (
     <div className="min-h-screen py-18 px-6">
-      {/* Hero Section */}
       <div className="max-w-3xl mx-auto text-center mb-12 space-y-4">
         <h1 className="tracking-tight pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text py-8 text-center text-6xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
           Share Your Startup Idea 🚀
@@ -95,7 +93,6 @@ export default function SubmitPage() {
         </span>
       </div>
 
-      {/* Form Card */}
       <div className="max-w-xl mx-auto">
         <div className="shadow-lg rounded-2xl p-8 border text-left">
           <h2 className="text-xl font-semibold mb-2">Share Your Idea</h2>
@@ -110,7 +107,6 @@ export default function SubmitPage() {
             }}
             className="flex flex-col gap-4"
           >
-            {/* Title */}
             <div>
               <Input
                 placeholder="Idea Title"
@@ -123,7 +119,6 @@ export default function SubmitPage() {
               </span>
             </div>
 
-            {/* Short Description */}
             <div>
               <Textarea
                 placeholder="One-liner that sums up your idea..."
@@ -136,7 +131,6 @@ export default function SubmitPage() {
               </span>
             </div>
 
-            {/* Solves Problem */}
             <div>
               <Textarea
                 placeholder="Problem your idea solves..."
@@ -149,7 +143,6 @@ export default function SubmitPage() {
               </span>
             </div>
 
-            {/* Full Description */}
             <div>
               <Textarea
                 placeholder="Briefly explain your idea..."
@@ -162,14 +155,12 @@ export default function SubmitPage() {
               </span>
             </div>
 
-            {/* Category */}
             <Input
               placeholder="Category (e.g. AI, Health, Education)"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             />
 
-            {/* Tags with badges */}
             <div>
               <Input
                 placeholder="Type a tag and press Enter"
@@ -191,7 +182,6 @@ export default function SubmitPage() {
               </div>
             </div>
 
-            {/* Anonymous toggle */}
             {session.data?.user && (
               <div className="flex items-center gap-2 pt-2">
                 <Switch
@@ -207,7 +197,6 @@ export default function SubmitPage() {
               </div>
             )}
 
-            {/* Submit & Rocket Button */}
             <div className="flex gap-2">
               <Button type="submit" disabled={loading}>
                 {loading ? "Submitting..." : "Submit Idea"}

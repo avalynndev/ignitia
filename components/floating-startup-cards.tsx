@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Eye, Heart } from "lucide-react";
+import { Star, Eye } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const sampleCards = [
@@ -110,7 +110,6 @@ export function FloatingStartupCards() {
             } backdrop-blur-sm bg-card/90`}
           >
             <CardContent className="flex flex-col h-full p-4 lg:p-5">
-              {/* Header */}
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <div
@@ -138,17 +137,14 @@ export function FloatingStartupCards() {
                 </div>
               </div>
 
-              {/* Title */}
               <h3 className="font-semibold text-sm lg:text-base mb-1 line-clamp-1">
                 {card.title}
               </h3>
 
-              {/* Description */}
               <p className="text-xs lg:text-sm text-muted-foreground mb-2 line-clamp-2 flex-1">
                 {card.description}
               </p>
 
-              {/* Tags */}
               <div className="lg:flex flex-wrap gap-1 mb-2 hidden">
                 {card.tags.slice(0, 3).map((tag, tagIndex) => (
                   <span
@@ -160,7 +156,6 @@ export function FloatingStartupCards() {
                 ))}
               </div>
 
-              {/* Stats */}
               <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto pt-2">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1">
@@ -178,7 +173,6 @@ export function FloatingStartupCards() {
         </motion.div>
       ))}
 
-      {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl" />
         <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl" />

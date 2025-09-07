@@ -2,7 +2,6 @@ import { Features } from "@/components/sections/features";
 import { Hero } from "@/components/sections/hero";
 import { CTA } from "@/components/sections/cta";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import RocketLaunch from "@/components/rocket";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 export default function Home() {

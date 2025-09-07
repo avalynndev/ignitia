@@ -25,7 +25,7 @@ export function Providers({ children }: { children: ReactNode }) {
       }}
       avatar
       signUp={{
-        fields: []
+        fields: [],
       }}
       nameRequired={false}
       Link={Link}

@@ -61,7 +61,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       twinkleProbability,
       minTwinkleSpeed,
       maxTwinkleSpeed,
-    ]
+    ],
   );
 
   useEffect(() => {
@@ -87,6 +87,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
 
     return () => {
       if (canvasRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         resizeObserver.unobserve(canvasRef.current);
       }
     };

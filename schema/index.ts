@@ -44,7 +44,7 @@ export const idea = pgTable(
     index("idea_title_idx").on(table.title),
     index("idea_username_idx").on(table.username),
     index("idea_category_idx").on(table.category),
-  ]
+  ],
 );
 
 export const ideaStars = pgTable(
@@ -60,7 +60,7 @@ export const ideaStars = pgTable(
   },
   (t) => ({
     pk: primaryKey({ columns: [t.userId, t.ideaId] }),
-  })
+  }),
 );
 
 export const comment = pgTable("comment", {
@@ -106,7 +106,6 @@ export const account = pgTable("account", {
   updatedAt: timestamp("updated_at").notNull(),
 });
 
-// The verification schema
 export const verification = pgTable("verification", {
   id: text("id").primaryKey(),
   identifier: text("identifier").notNull(),

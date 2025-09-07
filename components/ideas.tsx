@@ -3,14 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/lib/utils";
-import {
-  CornerBottomLeftIcon,
-  ChatBubbleIcon,
-  HeartIcon,
-  ReloadIcon,
-} from "@radix-ui/react-icons";
+import { ChatBubbleIcon, HeartIcon, ReloadIcon } from "@radix-ui/react-icons";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import { db } from "@/db";
@@ -74,12 +68,11 @@ export function IdeasExplore() {
   }, []);
 
   const visibleIdeas = ideas.filter((idea) =>
-    idea.title.toLowerCase().includes(searchTerm.toLowerCase())
+    idea.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
     <div className="w-full max-w-4xl pb-24">
-      {/* Search bar */}
       <div className="sticky top-0 z-10 px-4 py-2">
         <div className="relative w-full ">
           <Input
@@ -109,27 +102,25 @@ export function IdeasExplore() {
               onClick={() => router.push(`/idea/${idea.id}`)}
               className="group relative w-full cursor-pointer rounded-2xl border bg-card p-6 transition hover:shadow-lg hover:border-primary"
             >
-              {/* Header row: date + admin badge */}
               <div className="mb-2 flex items-center text-xs text-muted-foreground">
                 {formatDate(idea.createdAt)}
                 <div className="ml-auto">
-                  {idea.username === "avalynndev" && (
-                    <Badge variant="secondary">ADMIN</Badge>
+                  {idea.category && (
+                    <Badge variant="secondary" className="rounded-full text-xs">
+                      {idea.category}
+                    </Badge>
                   )}
                 </div>
               </div>
 
-              {/* Title */}
               <h3 className="line-clamp-1 text-xl font-semibold tracking-tight group-hover:text-primary">
                 {idea.title}
               </h3>
 
-              {/* Short description */}
               <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
                 {idea.shortDescription}
               </p>
 
-              {/* Tags */}
               {idea.tags?.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-2">
                   {idea.tags.map((tag) => (
@@ -144,7 +135,6 @@ export function IdeasExplore() {
                 </div>
               )}
 
-              {/* Footer: comments + rating */}
               <div className="mt-4 flex items-center justify-between">
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
@@ -156,11 +146,6 @@ export function IdeasExplore() {
                     {idea.stars}
                   </div>
                 </div>
-                {idea.category && (
-                  <Badge variant="secondary" className="rounded-full text-xs">
-                    {idea.category}
-                  </Badge>
-                )}
               </div>
             </div>
           ))

@@ -68,7 +68,6 @@ const testimonials = [
   },
 ];
 
-
 export function TestimonialsSection() {
   return (
     <section className="py-24 px-4">
@@ -94,12 +93,10 @@ export function TestimonialsSection() {
               className="group relative overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
               <CardContent className="p-6">
-                {/* Quote icon */}
                 <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
                   <Quote className="h-8 w-8" />
                 </div>
 
-                {/* Rating */}
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
@@ -109,12 +106,10 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                {/* Content */}
                 <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                   &quot;{testimonial.content}&quot;
                 </p>
 
-                {/* Author */}
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10">
                     <AvatarImage
@@ -145,7 +140,6 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        {/* Trust indicators */}
         <div className="mt-16 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div>

@@ -52,7 +52,7 @@ export function Features() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {FEATURES.map((f, i) => {
             const COLORS = ["bg-pink-800", "bg-indigo-800", "bg-blue-900"];
-            const bgColor = COLORS[i % COLORS.length]; // rotate colors
+            const bgColor = COLORS[i % COLORS.length];
 
             return (
               <motion.div
@@ -70,7 +70,7 @@ export function Features() {
                   <div
                     className="absolute inset-0 w-full h-full scale-[1.2] opacity-10 [mask-image:radial-gradient(#fff,transparent,75%)]"
                     style={{
-                      backgroundImage: `url("https://ui.aceternity.com/noise.webp")`,
+                      backgroundImage: `url("/noise.webp")`,
                       backgroundSize: "30%",
                     }}
                   />

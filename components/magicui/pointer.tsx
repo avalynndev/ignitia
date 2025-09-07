@@ -32,14 +32,11 @@ export function Pointer({
 
   useEffect(() => {
     if (typeof window !== "undefined" && containerRef.current) {
-      // Get the parent element directly from the ref
       const parentElement = containerRef.current.parentElement;
 
       if (parentElement) {
-        // Add cursor-none to parent
         parentElement.style.cursor = "none";
 
-        // Add event listeners to parent
         const handleMouseMove = (e: MouseEvent) => {
           x.set(e.clientX);
           y.set(e.clientY);
