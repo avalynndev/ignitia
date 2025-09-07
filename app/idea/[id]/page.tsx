@@ -20,7 +20,7 @@ export default function IdeaDetailPage() {
   const username = session.data?.user?.username ?? undefined;
 
   const [ideaData, setIdeaData] = useState<any | null>(null);
-  const [comments, setComments] = useState<any[]>([]);
+  const [comments, setComments] = useState<Comments[]>([]);
   const [newComment, setNewComment] = useState("");
   const [loading, setLoading] = useState(true);
   const [starred, setStarred] = useState(false);
@@ -187,8 +187,10 @@ export default function IdeaDetailPage() {
           </p>
 
           <div className="bg-muted/40 p-4 rounded-lg text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Solves Problem:</span>{" "}
-            {ideaData.solves}
+            <span className="font-medium text-foreground text-xl">
+              Solves Problem:
+            </span>
+            <div className="pt-2">{ideaData.solves}</div>
           </div>
         </div>
 

@@ -2,12 +2,9 @@ import { db } from "@/db";
 import { user, idea, comment } from "@/schema";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
-import { HeartIcon, UserRoundIcon } from "lucide-react";
-import { formatDate } from "@/lib/utils";
-import { ChatBubbleIcon } from "@radix-ui/react-icons";
-import { Link } from "next-view-transitions";
+import { UserRoundIcon } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { IdeaCard } from "@/components/card";
 
 export default async function ProfilePage({ params }: any) {
   const { username } = await params;
@@ -60,58 +57,7 @@ export default async function ProfilePage({ params }: any) {
       ) : (
         <ul className="space-y-4">
           {ideasWithComments.map((idea) => (
-            <Link key={idea.id} href={`/idea/${idea.id}`}>
-              <div className="group relative w-full cursor-pointer rounded-2xl border bg-card p-6 transition hover:shadow-lg hover:border-primary">
-                <div className="mb-2 flex items-center text-xs text-muted-foreground">
-                  {formatDate(idea.createdAt)}
-                  <div className="ml-auto">
-                    {idea.category && (
-                      <Badge
-                        variant="secondary"
-                        className="rounded-full text-xs"
-                      >
-                        {idea.category}
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-
-                <h3 className="line-clamp-1 text-xl font-semibold tracking-tight group-hover:text-primary">
-                  {idea.title}
-                </h3>
-
-                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                  {idea.shortDescription}
-                </p>
-
-                {idea.tags?.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {idea.tags.map((tag: any) => (
-                      <Badge
-                        key={tag}
-                        variant="outline"
-                        className="rounded-full px-2 py-0.5 text-xs"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
-
-                <div className="mt-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <ChatBubbleIcon className="h-4 w-4" />
-                      {idea.comments.length}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <HeartIcon className="h-4 w-4" />
-                      {idea.stars}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Link>
+            <IdeaCard {...idea} key={idea.id} />
           ))}
         </ul>
       )}
