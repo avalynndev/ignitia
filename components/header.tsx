@@ -115,21 +115,6 @@ export function Header() {
                 </li>
               );
             })}
-            <li>
-              <Link
-                href="/stars"
-                className={cn(
-                  "rounded-sm px-3 py-2 text-sm font-medium transition-colors",
-                  {
-                    "text-muted-foreground hover:text-foreground":
-                      pathname !== "/stars",
-                    "text-foreground": pathname === "/stars",
-                  },
-                )}
-              >
-                ⭐ Stars
-              </Link>
-            </li>
           </ul>
         </div>
       )}
