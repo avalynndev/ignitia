@@ -12,6 +12,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import RocketLaunch from "@/components/rocket";
+import { toast } from "sonner";
 
 export default function SubmitPage() {
   const session = useSession();
@@ -31,36 +32,44 @@ export default function SubmitPage() {
 
   const router = useRouter();
 
-  const handleCreateIdea = async () => {
-    if (!title.trim() || !shortDescription.trim() || !description.trim())
-      return;
-    setLoading(true);
+ const handleCreateIdea = async () => {
+   if (!title.trim() || !shortDescription.trim() || !description.trim()) {
+     return toast.error("Please fill all required fields!");
+   }
 
-    try {
-      const finalUsername = isAnonymous ? undefined : username;
+   setLoading(true);
 
-      await db.insert(idea).values({
-        title,
-        shortDescription,
-        solves,
-        description,
-        tags,
-        category,
-        username: finalUsername,
-      });
+   try {
+     const finalUsername = isAnonymous ? undefined : username;
 
-      setTitle("");
-      setShortDescription("");
-      setDescription("");
-      setTags([]);
-      setTagInput("");
-      setCategory("");
-      setIsAnonymous(true);
-      router.refresh();
-    } finally {
-      setLoading(false);
-    }
-  };
+     await db.insert(idea).values({
+       title,
+       shortDescription,
+       solves,
+       description,
+       tags,
+       category,
+       username: finalUsername,
+     });
+
+     setTitle("");
+     setShortDescription("");
+     setDescription("");
+     setTags([]);
+     setTagInput("");
+     setCategory("");
+     setIsAnonymous(true);
+     router.refresh();
+
+     toast.success("Idea submitted successfully! 🚀");
+   } catch (err) {
+     console.error(err);
+     toast.error("Something went wrong. Try again.");
+   } finally {
+     setLoading(false);
+   }
+ };
+
 
   const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" || e.key === ",") {

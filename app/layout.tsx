@@ -7,6 +7,7 @@ import { Header } from "@/components/header";
 import { Providers } from "@/components/providers";
 import { ViewTransitions } from "next-view-transitions";
 import { siteConfig } from "@/config/site";
+import { Toaster } from "sonner";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -87,6 +88,7 @@ export default function RootLayout({
         <body
           className={`${nunito.variable} ${ptSans.variable} antialiased relative bg-background text-foreground`}
         >
+          <Toaster />
           <Providers>
             <Header />
             <main
