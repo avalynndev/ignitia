@@ -55,7 +55,7 @@ export default async function ProfilePage({ params }: any) {
       {ideasWithComments.length === 0 ? (
         <p className="text-muted-foreground">No posts yet.</p>
       ) : (
-        <ul className="space-y-4">
+        <ul className="gap-4 grid">
           {ideasWithComments.map((idea) => (
             <IdeaCard {...idea} key={idea.id} />
           ))}

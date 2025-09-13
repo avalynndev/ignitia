@@ -5,7 +5,6 @@
 <a href=""><kbd>⚫️ shadcn-ui</kbd></a> <a href=""><kbd>🟡 drizzle</kbd></a> <a href=""><kbd>🔵 better-auth</kbd></a> <a href=""><kbd>🟠 neon</kbd></a>
 </p>
 
-
 # ⚡What is Ignitia?
 
 Ignitia is a comprehensive web platform designed to provide a hub for student startup ideas, made for the design championship competition 25'.
@@ -116,7 +115,7 @@ bun -v
 - [/auth/sign-up](https://ignitia-website.vercel.app/auth/sign-up)
 - [/profile/[username]](https://ignitia-website.vercel.app/profile)
 - [/idea/[id]](https://ignitia-website.vercel.app/idea)
-- [/account/settings](https://ignitia-website.vercel.app/account/settings)
+- [/auth/settings](https://ignitia-website.vercel.app/account/settings)
 
 ## 🤝 Thanks to all Contributors
 
@@ -132,4 +131,6 @@ This project would not be possible without our amazing contributors and the comm
 - Authentication is handled by Better Auth with support for multiple providers
 - Database is powered by Neon (PostgreSQL) for reliable and scalable data storage
 - For generating favicons this project used [realfavicongenerator](https://realfavicongenerator.net/)
-- This project focuses on student entrepreneurship and was built for educational competition purposes
+- No kind of code was copied from other repositories. However some parts of the code are similar to components I built before.
+- rocket.glb was taken from a free website offering glb files. (forgot the name)
+- noise.webp was taken from acentricity ui code files.

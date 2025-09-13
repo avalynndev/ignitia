@@ -15,6 +15,9 @@ export const auth = betterAuth({
     schema: schema,
   }),
   user: {
+    changeEmail: {
+      enabled: true,
+    },
     deleteUser: {
       enabled: true,
     },

@@ -41,24 +41,20 @@ export function CTA() {
             className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16 relative"
           >
             <Link href="/submit">
-              {" "}
               <RainbowButton className="w-full sm:w-auto group relative">
-                {" "}
-                <Lightbulb className="h-5 w-5 group-hover:animate-pulse" />{" "}
-                Submit Your Idea{" "}
-                <ArrowRight className="h-5 w-5 ml-1 group-hover:translate-x-1/5 transition-transform" />{" "}
-              </RainbowButton>{" "}
-            </Link>{" "}
+                <Lightbulb className="h-5 w-5 group-hover:animate-pulse" />
+                Submit Your Idea
+                <ArrowRight className="h-5 w-5 ml-1 group-hover:translate-x-1/5 transition-transform" />
+              </RainbowButton>
+            </Link>
             <Link href="/explore">
-              {" "}
               <Button
                 variant="outline"
                 size="lg"
                 className="w-full sm:w-auto relative"
               >
-                {" "}
-                <Sparkles className="h-5 w-5 mr-2" /> Explore Ideas{" "}
-              </Button>{" "}
+                <Sparkles className="h-5 w-5 mr-2" /> Explore Ideas
+              </Button>
             </Link>
           </motion.div>
         </div>

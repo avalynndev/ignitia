@@ -3,7 +3,7 @@
 import { Link } from "next-view-transitions";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
-import { UserButton } from "@daveyplate/better-auth-ui";
+import { UserButton } from "./user-button";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -79,7 +79,7 @@ export function Header() {
           </Link>
         </Button>
 
-        <UserButton size="icon" className="p-1" />
+        <UserButton />
 
         <Button
           variant="ghost"
